@@ -127,6 +127,7 @@ export const createEmployee = createAsyncThunk(
               duration: 8000,
             });
           });
+          thunkAPI.dispatch(fetchAllEmployees())
         return response.data.message;
       } catch (error) {
         thunkAPI.rejectWithValue(error.response.data.message);
