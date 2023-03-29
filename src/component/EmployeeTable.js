@@ -59,8 +59,17 @@ const EmployeeTable = ({items}) => {
               </tr>
           </thead>
           <tbody>
-            { items.map((item, index) => ( 
-            
+          {items.length === 0 ? 
+            <>
+                <tr className="bg-sky-100 hover:bg-sky-50  text-base  odd:bg-white border-b">
+                    <td className='px-6 py-4 text-center' colSpan={10}>
+                        No  employee yet
+                    </td>
+                </tr>
+            </>:
+            <>
+              { items.map((item, index) => ( 
+          
                 <tr className="bg-sky-100 hover:bg-sky-50  text-base odd:bg-white border-b " key={index}>
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                         {item.employeeNumber}
@@ -91,6 +100,8 @@ const EmployeeTable = ({items}) => {
                     </td>
                 </tr>
             ))}
+            </>
+          }
           </tbody>
         </table>
       </div>
