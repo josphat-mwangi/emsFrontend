@@ -12,6 +12,7 @@ export const fetchAllEmployees = createAsyncThunk(
             }
         });
         console.log(response.data)
+    
         return response.data;
 
       } catch (error) {
@@ -55,6 +56,7 @@ export const deleteEmployee = createAsyncThunk(
           }
         );
         const data = response.data;
+        thunkAPI.dispatch(fetchAllEmployees())
         return data;
       } catch (error) {
         thunkAPI.rejectWithValue(error.response.data.message);
@@ -81,6 +83,7 @@ export const updateEmployee = createAsyncThunk(
         );
         console.log("put response", response.data)
         const data = response.data;
+        thunkAPI.dispatch(fetchAllEmployees())
         toast.success(data.message, {
           id: employee,
           duration: 8000,

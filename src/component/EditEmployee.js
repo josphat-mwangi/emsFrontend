@@ -17,6 +17,7 @@ const EditEmployee = ({ setOpenForm, openForm, datas}) => {
             id: datas._id
         };
         dispatch(updateEmployee(data));
+        
         setOpenForm(false);
       };
 

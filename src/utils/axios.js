@@ -4,4 +4,3 @@ export const instance = axios.create({
   baseURL: process.env.REACT_APP_SERVER_REST_API_URL,
 });
 
-console.log("api working",  process.env.REACT_APP_SERVER_REST_API_URL)
